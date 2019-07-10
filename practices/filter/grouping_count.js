@@ -1,13 +1,9 @@
 'use strict';
 
 function grouping_count(collection) {
-  let collection_arr=[];
-   collection.forEach(number => {
-     if(collection_arr.indexOf(number)==-1){
-       collection_arr.push(number);
-     }
-     
-   });
+  let collection_arr=collection.filter(function(element,index,self){
+    return self.indexOf(element)==index;
+  })
    let result=new Object();
    collection_arr.forEach(number => {
        let cnt=0;
